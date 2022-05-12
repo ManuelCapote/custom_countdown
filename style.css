@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Nunito&display=swap');
 
 html {
   box-sizing: border-box;
@@ -10,7 +10,7 @@ body {
   overflow-y: hidden;
   display: flex;
   align-items: center;
-
+  font-family: Nunito, sans-serif;
 }
 
 /* Video Background */
@@ -18,7 +18,8 @@ body {
   position: fixed;
   right: 0;
   bottom: 0;
-
+  width: 100vw;
+  height: auto;
 }
 
 video {
@@ -32,7 +33,9 @@ video {
   position: fixed;
   left: 0;
   top: 0;
-
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.35);
 }
 
 /* Container */
@@ -46,7 +49,7 @@ video {
   z-index: 2;
   display: flex;
   justify-content: center;
-
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .input-container {
@@ -79,7 +82,7 @@ input {
   border-radius: 20px;
   background: #fff;
   outline: none;
-
+  font-family: Nunito, sans-serif;
 }
 
 /* Button */
@@ -96,7 +99,9 @@ button {
   outline: none;
 }
 
-
+button:hover {
+  filter: brightness(110%);
+}
 
 /* Countdown */
 ul {
@@ -104,11 +109,11 @@ ul {
 }
 
 li {
-
   font-size: 30px;
   list-style-type: none;
   padding: 10px;
   text-transform: uppercase;
+  display: inline-block;
 }
 
 li span {
@@ -123,23 +128,47 @@ li span {
   top: 60px;
 }
 
+.complete-title {
+  animation: complete 4s infinite;
+}
+@keyframes complete {
+  0% {
+    color: red;
+  }
+  25% {
+    color: yellow;
+  }
+  50% {
+    color: green;
+    transform: scale(1.5);
+  }
+  75% {
+    color: blue;
+  }
+  100% {
+    color: purple;
+  }
+}
 
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
   .video-background {
-
+    height: 100vh;
+    width: 100vw;
   }
-  
-  video {
 
+  video {
+    object-fit: cover;
+    object-position: 60%;
     margin-top: -1px;
   }
 
   .container {
-
+    min-width: unset;
     min-height: 245px;
+    width: 95vw;
     padding: 20px;
-    margin: 10px;
+    margin: 20px;
   }
 
   .input-container {
